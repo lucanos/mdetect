@@ -63,7 +63,7 @@
 
 
 //**************************
-// The uagent_info class encapsulates information about
+// The mdetect class encapsulates information about
 //   a browser's connection to your web site.
 //   You can use it to find out whether the browser asking for
 //   your site's content is probably running on a mobile device.
@@ -71,7 +71,7 @@
 //   For example, enquiring whether it's as specific as an iPod Touch or
 //   as general as a smartphone class device.
 //   The object's methods return 1 for true, or 0 for false.
-class uagent_info
+class mdetect
 {
    var $useragent = '';
    var $httpaccept = '';

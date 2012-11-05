@@ -14,7 +14,7 @@
       $desktopHomePage = 'index-desktop.htm';
 
       //Instantiate the object to do our testing with.
-      $uagent_obj = new uagent_info();
+      $mdetect = new mdetect();
       
 
       //This is a common mobile detection scenario...
@@ -35,23 +35,23 @@
       //Before we can call the function, we have to define it. 
       function AutoRedirectToProperHomePage()
       {
-	      global $uagent_obj, $iphoneTierHomePage, $genericMobileDeviceHomePage, $desktopHomePage;
+	      global $mdetect, $iphoneTierHomePage, $genericMobileDeviceHomePage, $desktopHomePage;
         
         //We have variables for certain high-usage device variables, like the iPhone Tier.
         //   You might use the device variables to show/hide certain functionality or platform-specific features and ads, etc.
         //   Alternately, you can use the method: DetectTierIphone().
         //   Sometimes, you may wish to include the Tablet Tier devices here, as well. 
-	      if ($uagent_obj->isTierIphone == $uagent_obj->true) 
-          header ('Location: '.$iphoneTierHomePage);
+	      if ($mdetect->isTierIphone == $mdetect->true) 
+          readfile($iphoneTierHomePage);
           
         //We can generally use the Quick Mobile detection method to save a couple of cycles.
-	      else if ($uagent_obj->DetectMobileQuick() == $uagent_obj->true) 
-          header ('Location: '.$genericMobileDeviceHomePage);
+	      else if ($mdetect->DetectMobileQuick() == $mdetect->true) 
+          readfile($genericMobileDeviceHomePage);
 
         //We'll assume that anything else not caught in the above filters is a desktop-class device. 
         //   (Which can include tablets.)
 	      else 
-          header ('Location: '.$desktopHomePage);
+          readfile($desktopHomePage);
       }
   
       //Now, we can call the redirect function.
