@@ -41,11 +41,11 @@
         //   You might use the device variables to show/hide certain functionality or platform-specific features and ads, etc.
         //   Alternately, you can use the method: DetectTierIphone().
         //   Sometimes, you may wish to include the Tablet Tier devices here, as well. 
-	      if ($mdetect->isTierIphone == $mdetect->true) 
+	      if ($mdetect->isTierIphone) 
           readfile($iphoneTierHomePage);
           
         //We can generally use the Quick Mobile detection method to save a couple of cycles.
-	      else if ($mdetect->DetectMobileQuick() == $mdetect->true) 
+	      else if ($mdetect->DetectMobileQuick()) 
           readfile($genericMobileDeviceHomePage);
 
         //We'll assume that anything else not caught in the above filters is a desktop-class device. 
