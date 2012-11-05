@@ -189,15 +189,14 @@ class mdetect {
 
   //**************************
   //The constructor. Allows the latest PHP (5.0+) to locate a constructor object and initialize the object.
-  function __construct()
-  {
-  $this->uagent_info();
+  function __construct(){
+    $this->mdetect();
   }
 
 
   //**************************
   //The object initializer. Initializes several default variables.
-  function uagent_info(){
+  function mdetect(){
     $this->useragent = isset($_SERVER['HTTP_USER_AGENT'])?strtolower($_SERVER['HTTP_USER_AGENT']):'';
     $this->httpaccept = isset($_SERVER['HTTP_ACCEPT'])?strtolower($_SERVER['HTTP_ACCEPT']):'';
 
