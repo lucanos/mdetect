@@ -421,7 +421,7 @@ class mdetect {
   // Focuses on Windows Mobile 6.xx and earlier.
   function DetectWindowsMobile(){
     if ($this->DetectWindowsPhone7() == true)
-      eturn false;
+      return false;
     //Most devices use 'Windows CE', but some report 'iemobile'
     //  and some older ones report as 'PIE' for Pocket IE.
     if (stripos($this->useragent, $this->deviceWinMob) > -1 ||
